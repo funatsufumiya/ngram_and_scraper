@@ -1,8 +1,7 @@
-import mojimoji
 import argparse
 
 parser = argparse.ArgumentParser(
-    description='Convert zen 2 han.',
+    description='Convert large 2 small',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
 )
 
@@ -17,5 +16,5 @@ textfile = args.textfile
 text = open(textfile, 'r').read()
 # text = "これは日本語分かち書きのテストになります。"
 
-result = mojimoji.zen_to_han(text)
+result = text.lower()
 print(result)

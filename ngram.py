@@ -23,11 +23,20 @@ if __name__ == '__main__':
         help='Japanese text to convert.'
     )
 
+    parser.add_argument(
+        '-n',
+        help='n',
+        type=int,
+        default=2
+    )
+    
+
     args = parser.parse_args()
     textfile = args.textfile
+    n = args.n
     text = open(textfile, 'r').read()
 
-    bigram = create_ngrams(text, 2)
+    bigram = create_ngrams(text, n)
 
     pd.set_option("display.max_rows", None)
     result = pd.Series(bigram).value_counts()
